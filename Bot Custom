@@ -1,0 +1,49 @@
+import discord
+import os
+import random
+from discord.ext import commands
+
+TOKEN = "MTI1MTkyODg5MDA1ODg3MDg0NQ.Gbe0K7.XEjAP5xw7sXTDR08QovRGnrBLDOzp1pLJAAFaI"
+
+intents = discord.Intents.default()
+intents.message_content = True
+
+bot = commands.Bot(command_prefix='$', intents=intents)
+
+@bot.command()
+async def comandos(ctx):
+    help_text = (
+        "1. `$info` - Explica quien creo Dragon ball legends.\n"
+        "2. `$formacion` - Tutorial sobre las formaciones de Dragon ball legends.\n"
+    )
+
+
+@bot.command()
+async def info(ctx):
+    datos = (
+        "Aquí tendras información sobre la creación del juego Dragon ball legends:\n"
+        "1.Dragon ball legends se creo el día 17 de mayo de 2018.\n"
+        "2.Dragon ball legends fue creado por akira toriyama en conjunto con Bandai Namco y Dimps.\n"
+    )
+    await ctx.send(datos)
+@bot.command()
+async def formacion(ctx):
+    datos = (
+        "Breve tutorial de la creación de formaciones en Dragon ball legends:\n"
+        "1.Las formaciones tienen 6 casillas de las cuales 1 es la casilla de lider con la cual podemos hacer que un personajes reciba todos los buffos de los demas personajes.\n"
+        "2.Recuerda hacer un equipo que siempre combine por ejemplo: un equipo basado en el arco de Majin Buu(Z)\n"
+        "3.Existen 7 tipos de afinidades en el juego: Rojo, Amarillo, Azul, Verde, Morado, Luz y Oscuro. Trata de siempre tener un equipo con variedad de tipos de afinidades.\n"
+    )
+    await ctx.send(datos)
+
+@bot.command()
+async def sumar(ctx, num1: float, num2: float):
+    resultado= num1 + num2
+    await ctx.send(f' suma de {num1} y {num2} es {resultado}')
+
+@bot.command()
+async def restar(ctx, num1: float, num2: float):
+    resultado= num1 - num2
+    await ctx.send(f' resta de {num1} y {num2} es {resultado}')
+
+bot.run("MTI1MTkyODg5MDA1ODg3MDg0NQ.Gbe0K7.XEjAP5xw7sXTDR08QovRGnrBLDOzp1pLJAAFaI")
